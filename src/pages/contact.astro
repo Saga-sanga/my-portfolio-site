@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Contact | My Portfolio" description="Get in touch with me.">
+  <section class="py-16 md:py-24 max-w-2xl mx-auto">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mb-4 text-slate-900 dark:text-white">Get in Touch</h1>
+      <p class="text-lg text-slate-600 dark:text-slate-400 max-w-xl mx-auto">
+        Have a question or want to work together? Drop me a message below and I'll get back to you as soon as possible.
+      </p>
+    </div>
+
+    <form 
+      action="https://api.web3forms.com/submit" 
+      method="POST" 
+      class="space-y-6 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm p-8 sm:p-10 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl shadow-slate-200/20 dark:shadow-none"
+    >
+      <!-- Web3Forms Access Key (Replace with your own from web3forms.com) -->
+      <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
+      
+      <!-- Optional: Setup redirect url -->
+      <!-- <input type="hidden" name="redirect" value="https://web3forms.com/success"> -->
+
+      <!-- Optional: Spam Protection -->
+      <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div>
+          <label for="name" class="block text-sm font-semibold text-slate-900 dark:text-white mb-2">
+            Name
+          </label>
+          <input 
+            type="text" 
+            name="name" 
+            id="name" 
+            required 
+            class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all placeholder:text-slate-400"
+            placeholder="John Doe"
+          />
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm font-semibold text-slate-900 dark:text-white mb-2">
+            Email
+          </label>
+          <input 
+            type="email" 
+            name="email" 
+            id="email" 
+            required 
+            class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all placeholder:text-slate-400"
+            placeholder="john@example.com"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label for="message" class="block text-sm font-semibold text-slate-900 dark:text-white mb-2">
+          Message
+        </label>
+        <textarea 
+          name="message" 
+          id="message" 
+          rows="6" 
+          required 
+          class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all resize-none placeholder:text-slate-400"
+          placeholder="How can I help you?"
+        ></textarea>
+      </div>
+
+      <button 
+        type="submit" 
+        class="w-full py-4 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-500/30 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 active:scale-[0.98]"
+      >
+        Send Message
+      </button>
+    </form>
+  </section>
+</BaseLayout>
