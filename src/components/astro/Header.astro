@@ -1,22 +1,50 @@
 ---
-import ThemeToggle from '../react/ThemeToggle';
-import { Terminal } from 'lucide-react';
+import ThemeToggle from "../react/ThemeToggle";
+import { Terminal } from "lucide-react";
 ---
 
-<header class="fixed top-0 z-50 w-full border-b border-slate-200/50 dark:border-slate-800/50 bg-white/70 dark:bg-slate-950/70 backdrop-blur-md">
-  <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-    <a href="/" class="group flex items-center gap-2 text-lg font-bold tracking-tight text-slate-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-      <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-600 text-white group-hover:bg-indigo-700 transition-colors">
+<header
+  class="fixed top-0 z-50 w-full border-b border-slate-200/50 bg-white/70 backdrop-blur-md dark:border-slate-800/50 dark:bg-slate-950/70"
+>
+  <div
+    class="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8"
+  >
+    <a
+      href="/"
+      class="group flex items-center gap-2 text-lg font-bold tracking-tight text-slate-900 transition-colors hover:text-indigo-600 dark:text-white dark:hover:text-indigo-400"
+    >
+      <div
+        class="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-600 text-white transition-colors group-hover:bg-indigo-700"
+      >
         <Terminal className="h-5 w-5" />
       </div>
       <span>Reckson</span>
     </a>
-    
-    <nav class="flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
-      <a href="/projects" class="hover:text-slate-900 dark:hover:text-white transition-colors hidden sm:block">Projects</a>
-      <a href="/blog" class="hover:text-slate-900 dark:hover:text-white transition-colors">Blog</a>
-      <a href="/contact" class="hover:text-slate-900 dark:hover:text-white transition-colors">Contact</a>
-      <div class="h-5 w-px bg-slate-200 dark:bg-slate-700 mx-2"></div>
+
+    <nav
+      class="flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300"
+    >
+      <a
+        href="/#about"
+        class="hidden transition-colors hover:text-slate-900 sm:block dark:hover:text-white"
+        >About</a
+      >
+      <a
+        href="projects"
+        class="hidden transition-colors hover:text-slate-900 sm:block dark:hover:text-white"
+        >Projects</a
+      >
+      <a
+        href="/blog"
+        class="transition-colors hover:text-slate-900 dark:hover:text-white"
+        >Blog</a
+      >
+      <a
+        href="/#contact"
+        class="transition-colors hover:text-slate-900 dark:hover:text-white"
+        >Contact</a
+      >
+      <div class="mx-2 h-5 w-px bg-slate-200 dark:bg-slate-700"></div>
       <ThemeToggle client:load />
     </nav>
   </div>

@@ -1,9 +1,9 @@
 ---
-import '@fontsource-variable/inter/wght.css';
-import BaseHead from '../components/astro/BaseHead.astro';
-import Header from '../components/astro/Header.astro';
-import Footer from '../components/astro/Footer.astro';
-import '../styles/global.css';
+import "@fontsource-variable/inter/wght.css";
+import BaseHead from "../components/astro/BaseHead.astro";
+import Header from "../components/astro/Header.astro";
+import Footer from "../components/astro/Footer.astro";
+import "../styles/global.css";
 
 interface Props {
   title: string;
@@ -14,17 +14,19 @@ const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="antialiased scroll-smooth">
+<html lang="en" class="scroll-smooth antialiased">
   <head>
     <BaseHead title={title} description={description} />
   </head>
-  <body class="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans transition-colors duration-300 selection:bg-indigo-500/30">
+  <body
+    class="flex min-h-screen flex-col bg-slate-50 font-sans text-slate-900 transition-colors duration-300 selection:bg-indigo-500/30 dark:bg-slate-950 dark:text-slate-100"
+  >
     <Header />
-    
-    <main class="grow w-full">
+
+    <main class="w-full grow">
       <slot />
     </main>
-    
+
     <Footer />
   </body>
 </html>
