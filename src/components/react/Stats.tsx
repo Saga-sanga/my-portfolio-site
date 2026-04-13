@@ -1,9 +1,9 @@
-import { Award, Code2, Coffee, Globe } from "lucide-react";
+import { Award, Code2, Terminal, Globe } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
   { icon: Code2, value: 87, suffix: "+", label: "Repositories" },
-  { icon: Coffee, value: 1000, suffix: "+", label: "Cups of Coffee" },
+  { icon: Terminal, value: 100, suffix: "k+", label: "Lines of Code" },
   { icon: Award, value: 3, suffix: "", label: "GitHub Achievements" },
   { icon: Globe, value: 20, suffix: "+", label: "Followers" },
 ];
