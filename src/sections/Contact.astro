@@ -11,7 +11,7 @@ const contactInfo = [
   {
     icon: MapPin,
     label: "Location",
-    value: "Mizoram, India",
+    value: "Aizawl, India",
     href: "#",
   },
   {
@@ -72,7 +72,7 @@ const contactInfo = [
         </p>
         <div class="flex items-center gap-4">
           <a
-            href="https://github.com"
+            href="https://github.com/Saga-sanga"
             target="_blank"
             rel="noreferrer"
             class="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-600 transition-colors hover:border-indigo-600 hover:text-indigo-600 dark:border-slate-800 dark:text-slate-400 dark:hover:border-indigo-400 dark:hover:text-indigo-400"
@@ -110,7 +110,7 @@ const contactInfo = [
             <span class="sr-only">LinkedIn</span>
           </a>
           <a
-            href="https://twitter.com"
+            href="https://twitter.com/RecksonKhiangte"
             target="_blank"
             rel="noreferrer"
             class="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-600 transition-colors hover:border-indigo-600 hover:text-indigo-600 dark:border-slate-800 dark:text-slate-400 dark:hover:border-indigo-400 dark:hover:text-indigo-400"
@@ -155,11 +155,16 @@ const contactInfo = [
     <!-- Contact Form Section -->
     <form
       action="https://api.web3forms.com/submit"
+      id="contact-form"
       method="POST"
       class="space-y-6 rounded-2xl border border-slate-200 bg-white/80 p-8 shadow-xl shadow-slate-200/20 backdrop-blur-sm sm:p-10 lg:col-span-3 dark:border-slate-800 dark:bg-slate-900/80 dark:shadow-none"
     >
       <!-- Web3Forms Access Key -->
-      <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
+      <input
+        type="hidden"
+        name="access_key"
+        value="747cf72a-0c4e-4ca2-9962-e0388b60cdf4"
+      />
       <input
         type="checkbox"
         name="botcheck"
@@ -227,5 +232,82 @@ const contactInfo = [
         </span>
       </button>
     </form>
+    <div id="result" class="mt-3 text-center"></div>
   </div>
 </section>
+
+<style>
+  .invalid-feedback,
+  .empty-feedback {
+    display: none;
+  }
+
+  .was-validated :placeholder-shown:invalid ~ .empty-feedback {
+    display: block;
+  }
+
+  .was-validated :not(:placeholder-shown):invalid ~ .invalid-feedback {
+    display: block;
+  }
+
+  .is-invalid,
+  .was-validated :invalid {
+    border-color: #dc3545;
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+      const form = document.getElementById("contact-form");
+      const result = document.getElementById("result");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        form.classList.add("was-validated");
+        if (!form.checkValidity()) {
+          form.querySelectorAll(":invalid")[0].focus();
+          return;
+        }
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        result.innerHTML = "Sending...";
+
+        fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: json,
+        })
+          .then(async (response) => {
+            let json = await response.json();
+            if (response.status == 200) {
+              result.classList.add("text-green-500");
+              result.innerHTML = json.message;
+            } else {
+              console.log(response);
+              result.classList.add("text-red-500");
+              result.innerHTML = json.message;
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+            result.innerHTML = "Something went wrong!";
+          })
+          .then(function () {
+            form.reset();
+            form.classList.remove("was-validated");
+            setTimeout(() => {
+              result.style.display = "none";
+            }, 5000);
+          });
+      });
+    },
+    { once: true },
+  );
+</script>
