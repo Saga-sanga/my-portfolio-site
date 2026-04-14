@@ -7,7 +7,7 @@ tags: ['astro', 'webdev', 'tailwind']
 
 Welcome to my new digital garden! 
 
-I decided to build this portfolio using **Astro**, **Tailwind CSS**, and **React**. I wanted a platform that was incredibly fast, simple to maintain, and allowed me to write content using Markdown. 
+I decided to build this portfolio using **Astro**, **Tailwind CSS**, and **React**. I wanted a platform that was incredibly fast, simple to maintain, and allows me to write content using Markdown. 
 
 ## Why Astro?
 
