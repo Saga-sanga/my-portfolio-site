@@ -1,14 +1,14 @@
 ---
 import {
-  Box,
-  Code2,
-  Database,
-  FileCode,
-  GitBranch,
-  Layers,
-  Layout,
-  Server,
-} from "lucide-react";
+  siAstro,
+  siDrizzle,
+  siGit,
+  siNextdotjs,
+  siNodedotjs,
+  siPostgresql,
+  siReact,
+  siTypescript,
+} from "simple-icons";
 ---
 
 <div class="mt-16 border-t border-slate-200 pt-16 dark:border-slate-800">
@@ -18,18 +18,21 @@ import {
   <div class="flex flex-wrap justify-center gap-8">
     {
       [
-        { icon: Code2, name: "TypeScript" },
-        { icon: Box, name: "React" },
-        { icon: Layout, name: "Next.js" },
-        { icon: Layers, name: "Astro" },
-        { icon: Server, name: "Node.js" },
-        { icon: Database, name: "PostgreSQL" },
-        { icon: GitBranch, name: "Git" },
-        { icon: FileCode, name: "Drizzle" },
+        { icon: siTypescript, name: "TypeScript" },
+        { icon: siReact, name: "React" },
+        { icon: siNextdotjs, name: "Next.js" },
+        { icon: siAstro, name: "Astro" },
+        { icon: siNodedotjs, name: "Node.js" },
+        { icon: siPostgresql, name: "PostgreSQL" },
+        { icon: siGit, name: "Git" },
+        { icon: siDrizzle, name: "Drizzle" },
       ].map((tech) => (
         <div class="group flex flex-col items-center gap-2">
           <div class="bg-card group-hover:border-primary/30 group-hover:bg-primary/5 flex h-14 w-14 items-center justify-center rounded-xl border border-slate-200 transition-all dark:border-slate-800">
-            <tech.icon className="text-slate-600 dark:text-slate-400 group-hover:text-primary h-6 w-6 transition-colors" />
+            <div
+              set:html={tech.icon.svg}
+              class="group-hover:fill-primary h-6 w-6 fill-slate-600 transition-colors dark:fill-slate-400"
+            />
           </div>
           <span class="text-muted-foreground text-xs">{tech.name}</span>
         </div>
